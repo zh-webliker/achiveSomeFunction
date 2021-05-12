@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li><a href="/home">home</a></li>
+    <li><a href="/about">about</a></li>
+    <div id='routeView'></div>
+  </ul>
+  <script>
+    let routerView = document.querySelector('#routeView')
+    window.addEventListener('DOMContentLoaded', onload)
+    window.addEventListener('popstate', () => {
+      routerView.innerHTML = location.pathname
+    })
+    function onload () {
+      // 替换页面内容
+      // 阻止a标签的跳转
+      routerView.innerHTML = location.pathname
+      var linkList = document.querySelectorAll('a[href]')
+      linkList.forEach(el => el.addEventListener('click', function(e) { // e是事件
+          e.preventDefault()
+          history.pushState(null, '', el.getAttribute('href'))
+          routerView.innerHTML = location.pathname
+        })
+      )
+    }
+
+    // 用文本协议验证会报错
+    // pushState的url参数(第三个)：URL也会有跨域相关问题，新的url和当前的url，必须是同一个域下的，才能正常执行
+  </script>
+</body>
+</html>
