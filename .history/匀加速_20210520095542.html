@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<link lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .fatherbox {
+    width: 100%;
+    height: 40px;
+    background-color: aquamarine;
+  }
+  .childBox {
+    width: 40px;
+    height: 40px;
+    background-color: brown;
+  }
+</style>
+<body>
+  <div class="fatherBox">
+    <div class="childBox"></div>
+  </div>
+</body>
+<script>
+let marginLeft = 0
+let time = 0
+var timer = setInterval(() => {
+  time += 100
+    console.log(setSUDU())
+  setSUDU(time)
+}, 100);
+if (time === 10000) {
+  clearInterval(timer)
+}
+function setSUDU (ms) {
+  let timer = setTimeout(() => {
+    marginLeft += 20
+    var childBox = document.getElementsByClassName('childBox')[0]
+    childBox.style.marginLeft = marginLeft + 'px'
+  }, ms)
+  clearTimeout(timer)
+}
+
+</script>
+</html>
