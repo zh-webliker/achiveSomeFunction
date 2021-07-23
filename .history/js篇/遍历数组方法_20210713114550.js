@@ -1,0 +1,1 @@
+// forEach、map、filter、find、every、some、reduce，它们有个共同点：不会改变原始数组。
